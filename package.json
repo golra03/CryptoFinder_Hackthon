@@ -1,0 +1,17 @@
+{
+  "name": "BAETH",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "asyncawait": "^1.0.6"
+  },
+  "dependencies": {
+    "web3": "^1.0.0-beta.29",
+    "solc": "^0.4.17"
+  }
+}

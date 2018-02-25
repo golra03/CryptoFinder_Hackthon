@@ -1,0 +1,123 @@
+@import "../variables";
+@import "../bootstrap/scss/custom";
+@import "../bootstrap/scss/mixins";
+@import "../mixins";
+
+.card {
+	@include font-size(14px);
+	position: relative;
+	.card-header {
+		@include font-size(15px);
+		font-weight: 700;
+	}
+	.card-title {
+		@include font-size(15px);
+		font-weight: 700;
+	}
+	.card-subtitle {
+		@include font-size(14px);
+		font-weight: 500;
+	}
+	.card-title,
+	.card-subtitle,
+	.card-text,
+	p,
+	small,
+	footer {
+		display: block;
+		margin-bottom: 10px;
+	}
+	small {
+		@include font-size(13px);
+	}
+	.card-actions {
+		margin-bottom: 0;
+		font-weight: 700;
+		> span, 
+		> i {
+			margin-right: 10px;
+		}
+		> span {
+			@include font-size(13px);
+		}
+	}
+
+	.card-block {
+		position: relative;
+		.card-img-user {
+			width: 100%;
+			position: absolute;
+			top: -35px;
+			left: calc(100% - 85px);
+			display: block;
+
+			.rounded-circle {
+				max-width: 70px;
+				width: 70px;
+				border-style: solid;
+				border-width: 3px;
+				border-color: #fff;
+
+				@include box-shadow;
+				z-index: 1;
+			}
+
+		}
+
+	}
+
+	&.card-with-badge {
+		.badge {
+			position: absolute; 
+			top: 10px;
+			right: 10px;
+		}
+	}
+}
+
+.card-columns {
+  @include media-breakpoint-only(sm) {
+    column-count: 2;
+  }
+  @include media-breakpoint-only(md) {
+    column-count: 2;
+  }
+  @include media-breakpoint-only(lg) {
+    column-count: 3;
+  }
+  @include media-breakpoint-only(xl) {
+    column-count: 4;
+  }
+}
+
+@each $key, $value in $default-palette {
+  [data-background="#{$key}"] {
+    .card {
+      background: map-get($value, "odd-color");
+      border-color: map-get($value, "odd-color");
+      color: map-get($value, "color");
+			.card-header {
+				background: map-get($value, "odd-color");
+				border-color: map-get($value, "odd-color");
+				color: map-get($value, "color");
+			}
+			&.card-inverse {
+				background: map-get($value, "color");
+				border-color: map-get($value, "color");
+				color: map-get($value, "odd-color");
+				.card-header {
+					background: map-get($value, "color");
+					border-color: map-get($value, "color");
+					color: map-get($value, "odd-color");
+				}
+			}
+			@each $skey, $svalue in $bootstrap-colors {
+				&.card-#{$skey} {
+					background: $svalue;
+					border-color: $svalue;
+					color: #fff;
+				}
+			}
+    }
+	}
+}

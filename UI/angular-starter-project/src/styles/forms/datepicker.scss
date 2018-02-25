@@ -1,0 +1,303 @@
+@import "../variables";
+//@import "../palettes/forms";
+
+// Mixins
+
+// Button variants
+@mixin button-variant($color, $background, $border) {
+  color: $color;
+  background-color: $background;
+  border-color: $border;
+
+  &:focus,
+  &.focus {
+    color: $color;
+    background-color: $background;
+        border-color: $border;
+  }
+  &:hover {
+    color: $color;
+    background-color: $background;
+        border-color: $border;
+  }
+  &:active,
+  &.active {
+    color: $color;
+    background-color: $background;
+        border-color: $border;
+
+    &:hover,
+    &:focus,
+    &.focus {
+      color: $color;
+    background-color: $background;
+        border-color: $border;
+    }
+  }
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    &:hover,
+    &:focus,
+    &.focus {
+      background-color: $background;
+          border-color: $border;
+    }
+  }
+}
+
+@each $key, $value in $default-palette {
+  [data-background="#{$key}"] {
+		// Variables
+		$gray: map-get($value, 'color');
+		$gray-light: lighten($gray, 5);
+		$gray-lighter: lighten($gray, 10);
+
+		$brand-primary: map-get($value, 'alt-highlight-color');
+
+		$btn-primary-color: map-get($value, 'color');
+		$btn-primary-bg: $brand-primary;
+		$btn-primary-border: darken($btn-primary-bg, 5%);
+
+		$btn-link-disabled-color:        $gray-light;
+
+		$state-info-bg: map-get($value, 'alt-highlight-color');
+
+		$line-height-base: 1.428571429; // 20/14
+		$border-radius-base: 0px;
+
+		$dropdown-bg: map-get($value, 'even-color');
+		$dropdown-border: map-get($value, 'border-color');
+
+
+		.datepicker {
+			border-radius: $border-radius-base;
+			&-inline {
+				width: 220px;
+			}
+			direction: ltr;
+			&-rtl {
+				direction: rtl;
+				&.dropdown-menu { left: auto; }
+				table tr td span {
+					float: right;
+				}
+			}
+			&-dropdown {
+				top: 0;
+				left: 0;
+				padding: 4px;
+				&:before {
+					display:none;
+				}
+				&:after {
+					display: none;
+				}
+			}
+			table {
+				margin: 0;
+				-webkit-touch-callout: none;
+				-webkit-user-select: none;
+				-khtml-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				user-select: none;
+				tr {
+					td, th {
+						text-align: center;
+						width: 30px;
+						height: 30px;
+						border: none;
+					}
+				}
+			}
+			// Inline display inside a table presents some problems with
+			// border and background colors.
+			.table-striped & table tr {
+				td, th {
+					background-color: transparent;
+				}
+			}
+			table tr td {
+				font-size: 13px;
+				&.old,
+				&.new {
+					color: map-get($value, 'color');
+				}
+				&.day:hover,
+				&.focused {
+					background: map-get($value, 'alt-highlight-color');
+					color: #fff;
+					cursor: pointer;
+				}
+				&.disabled,
+				&.disabled:hover {
+					background: none;
+					color: $btn-link-disabled-color;
+					cursor: default;
+				}
+				&.highlighted {
+					$highlighted-bg: $state-info-bg;
+					@include button-variant(#fff, map-get($value, 'even-color'), map-get($value, 'border-color'));
+					border-radius: 0;
+
+					&.focused {
+						background: darken($highlighted-bg, 10%);
+					}
+
+					&.disabled,
+					&.disabled:active {
+						background: $highlighted-bg;
+						color: $btn-link-disabled-color;
+					}
+				}
+				&.today {
+					$today-bg: map-get($value, 'alt-highlight-color');
+					@include button-variant(#fff, map-get($value, 'even-color'), map-get($value, 'border-color'));
+
+					&.focused {
+						background: darken($today-bg, 10%);
+					}
+
+					&.disabled,
+					&.disabled:active {
+						background: $today-bg;
+						color: $btn-link-disabled-color;
+					}
+				}
+				&.range {
+					$range-bg: map-get($value, 'alt-highlight-color');
+					@include button-variant(#fff, map-get($value, 'even-color'), map-get($value, 'border-color'));
+					border-radius: 0;
+
+					&.focused {
+						background: darken($range-bg, 10%);
+					}
+
+					&.disabled,
+					&.disabled:active {
+						background: $range-bg;
+						color: $btn-link-disabled-color;
+					}
+				}
+				&.range.highlighted {
+					$range-highlighted-bg: map-get($value, 'alt-highlight-color');
+					@include button-variant(#fff, map-get($value, 'even-color'), map-get($value, 'border-color'));
+
+					&.focused {
+						background: darken($range-highlighted-bg, 10%);
+					}
+
+					&.disabled,
+					&.disabled:active {
+						background: $range-highlighted-bg;
+						color: $btn-link-disabled-color;
+					}
+				}
+				&.range.today {
+					$range-today-bg: map-get($value, 'alt-highlight-color');
+					@include button-variant(#fff, map-get($value, 'even-color'), map-get($value, 'border-color'));
+
+					&.disabled,
+					&.disabled:active {
+						background: $range-today-bg;
+						color: $btn-link-disabled-color;
+					}
+				}
+				&.selected,
+				&.selected.highlighted {
+					@include button-variant(#fff, map-get($value, 'even-color'), map-get($value, 'border-color'));
+				}
+				&.active,
+				&.active.highlighted {
+					@include button-variant(#fff, map-get($value, 'alt-highlight-color'), map-get($value, 'border-color'));
+				}
+				span {
+					display: block;
+					width: 23%;
+					height: 54px;
+					line-height: 54px;
+					float: left;
+					margin: 1%;
+					cursor: pointer;
+					&:hover,
+					&.focused {
+						background: map-get($value, 'alt-highlight-color');
+					}
+					&.disabled,
+					&.disabled:hover {
+						background: none;
+						color: $btn-link-disabled-color;
+						cursor: default;
+					}
+					&.active,
+					&.active:hover,
+					&.active.disabled,
+					&.active.disabled:hover {
+						@include button-variant(#fff, map-get($value, 'alt-highlight-color'), map-get($value, 'border-color'));
+					}
+					&.old,
+					&.new {
+						color: $btn-link-disabled-color;
+					}
+				}
+			}
+
+			.datepicker-switch {
+				background: map-get($value, 'alt-highlight-color');
+				color: #fff;
+				width: 145px;
+			}
+
+			.datepicker-switch,
+			.prev,
+			.next,
+			tfoot tr th {
+				cursor: pointer;
+				&:hover {
+					background: map-get($value, 'alt-highlight-color');
+					color: #fff;
+				}
+			}
+
+			.prev, .next {
+				background: map-get($value, 'alt-highlight-color');
+				color: #fff;
+				&.disabled {
+					visibility: hidden;
+				}
+			}
+
+			// Basic styling for calendar-week cells
+			.cw {
+				font-size: 10px;
+				width: 12px;
+				padding: 0 2px 0 5px;
+				vertical-align: middle;
+			}
+		}
+		.input-group.date .input-group-addon {
+			cursor: pointer;
+		}
+		.input-daterange {
+			width: 100%;
+			input {
+				text-align: center;
+			}
+			input:first-child {
+			}
+			input:last-child {
+			}
+			.input-group-addon {
+				width: auto;
+				min-width: 16px;
+				padding: 4px 5px;
+				line-height: $line-height-base;
+				border-width: 1px 0;
+				margin-left: -5px;
+				margin-right: -5px;
+			}
+		}
+	}
+}
+

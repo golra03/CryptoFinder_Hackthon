@@ -1,0 +1,18 @@
+{
+      "config": {
+          "chainId": 2018,
+          "homesteadBlock": 0,
+          "eip155Block": 0,
+          "eip158Block": 0
+        },
+        "nonce": "0x00",
+        "timestamp": "0x00",
+        "extraData": "",
+        "gasLimit": "4712388",
+        "difficulty": "0x1",
+        "mixHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "coinbase": "0x0e7f8512dbf4640bfba065675ec30fd7889fc30d",
+        "alloc": {
+              "0x0e7f8512dbf4640bfba065675ec30fd7889fc30d": {"balance": "311111111111111111111111"}
+        }
+}

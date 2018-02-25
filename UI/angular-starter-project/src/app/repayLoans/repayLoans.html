@@ -1,0 +1,33 @@
+<div style="font-weight: bold; margin-top: 1em;margin-left: 2%; font-size: 1.3em">
+<u>All Approved Loans:</u>
+</div>
+    <div class="row" style="margin-top: 2%">
+        <div class="col">
+            <div class="widget">
+                <div class="row">
+                    <div class="col">
+                        <table id="datatable-example-2" class="table table-hover table-striped table-bordered" style="width: 100%">
+                            <thead>
+                                <tr >
+                                    <th style="text-align: center;">Sl. No</th>
+                                    <th style="text-align: center;">Customer Name</th>
+                                    <th style="text-align: center;">Loan Amount</th>
+                                    <th style="text-align: center;">Loan Duration</th> 
+                                    <th style="text-align: center;">Repay Loan</th>                     
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor = "let y of loanLists ; let i = index">
+                                    <td style="text-align: center;">{{i+1}}</td>
+                                    <td style="text-align: center;">{{y.customerName}}</td>
+                                    <td style="text-align: center;">{{y.loanAmount}}</td>
+                                    <td style="text-align: center;">{{y.loanDuration}}</td>
+                                    <td style="text-align: center;"><i class="sli-action-redo" style="font-size:24px;cursor: pointer;" (click)="repay(y)"></i></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,71 @@
+<div class="col col-xl-6">
+  <div class="form-group">
+    <label>Customer Name</label>
+    <p style="font-weight: bolder;font-size: 1.2em;">
+      {{kyc.customerName}}
+    </p>
+    <small class="form-control-feedback"></small>
+  </div>
+</div>
+<div class="row">
+    <div class="col col-xl-6">
+      <div class="form-group">
+        <label>Document Name - 1</label>
+        <input type="text" class="form-control" [(ngModel)]="kyc.documentName" [ngModelOptions]="{standalone: true}" name="DocName">
+        <small class="form-control-feedback"></small>
+      </div>
+    </div>
+    <div class="col col-xl-6">
+      <div class="form-group">
+        <label>Document Id - 1</label>
+        <input type="text" class="form-control" [(ngModel)]="kyc.documentId" [ngModelOptions]="{standalone: true}" name="DocName">
+        <small class="form-control-feedback"></small>
+      </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col col-xl-6">
+      <div class="form-group">
+        <label>Document Name - 2</label>
+        <input type="text" class="form-control" [(ngModel)]="kyc.documentName2" [ngModelOptions]="{standalone: true}" name="DocName">
+        <small class="form-control-feedback"></small>
+      </div>
+    </div>
+    <div class="col col-xl-6">
+      <div class="form-group">
+        <label>Document Id - 2</label>
+        <input type="text" class="form-control" [(ngModel)]="kyc.documentId2" [ngModelOptions]="{standalone: true}" name="DocName">
+        <small class="form-control-feedback"></small>
+      </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col col-xl-6">
+      <div class="form-group">
+        <label>Document Name - 3</label>
+        <input type="text" class="form-control" [(ngModel)]="kyc.documentName3" [ngModelOptions]="{standalone: true}" name="DocName">
+        <small class="form-control-feedback"></small>
+      </div>
+    </div>
+    <div class="col col-xl-6">
+      <div class="form-group">
+        <label>Document Id - 3</label>
+        <input type="text" class="form-control" [(ngModel)]="kyc.documentId3" [ngModelOptions]="{standalone: true}" name="DocName">
+        <small class="form-control-feedback"></small>
+      </div>
+    </div>
+</div>
+<div style="margin-left: 10%;margin-top: 4%">
+<div  class="jumbotron jumbotron-1">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                <a class="btn btn-warning btn-rounded btn-icon" (click)="sendDocumentForKYC(kyc)">
+                    <i class="sli-share-alt"></i>
+                    <span class="btn-text" style="color: black;">Send Document for KYC</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

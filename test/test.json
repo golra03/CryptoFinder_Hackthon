@@ -1,0 +1,8 @@
+{
+	"proposerAddress":"0x72F02957d8CB404F45aA097C5D579346784E9437",
+	"url":"xml(https://www.fueleconomy.gov/ws/rest/fuelprices).fuelPrices.diesel",
+	"sellTokenAmount":20,
+	"buyTokenAmount":40,
+	"returnAmount":30,
+	"duration":10
+}

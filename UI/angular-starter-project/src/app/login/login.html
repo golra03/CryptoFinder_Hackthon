@@ -1,0 +1,161 @@
+<div style="background-image: url('./assets/images/high-quad-shot1.jpg');
+            content: '';
+            width: 100%;
+            height: 100%;
+            position:absolute;
+            overflow: auto;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-origin: initial;">
+<div style="margin-left: 40%;margin-top: 5%;filter: blur(0px);opacity: .9;">
+<div class="sample-form-2 login">
+    <div class="side-bg-1"></div>
+    <div class="side-bg-2" style="background-color: #ffa000"></div>
+    <div class="side-description" style="color: black">
+        <div class="logo">
+            <span class="title" style="color: black">BAETH</span>
+        </div>
+        <div style="margin-top: 70%">
+        <div class="form-group">
+            <a  (click)="customerLogin()">Customer Login</a>
+        </div>
+        <div class="form-group">
+            <a (click)="customerRegistration()">Customer Registration</a>
+        </div>
+        <div class="form-group">
+            <a (click)="userLogin()">User Login</a>
+        </div>
+
+    </div></div>    
+<!--     __________________________________________________ Customer Login  ____________________________________________
+ -->
+     <form [hidden]="!customerLoginPage">
+        <div class="form-description">
+            <h2> Customer Login</h2>
+        </div>
+        <div style="padding-top: 15%">
+        <div class="form-group">
+            <div class="input-group">
+                <span class="input-group-addon">
+            <i class="sli-envelope"></i>
+        </span>
+                <input type="email" [(ngModel)]="login.email" [ngModelOptions]="{standalone: true}" name="emailEntered" class="form-control" placeholder="Customer EmailId">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="input-group">
+                <span class="input-group-addon">
+            <i class="sli-lock"></i>
+        </span>
+                <input type="password" class="form-control" [(ngModel)]="login.password" [ngModelOptions]="{standalone: true}"  placeholder="Customer Password">
+            </div>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary btn-rounded" type="submit" (click)="submitCustomerLogin(login)">Submit</button>
+        </div>
+        </div>
+
+        </form>
+<!--     _______________________________________ Customer Registration  ____________________________________________
+ -->
+
+    <form [hidden]="!customerRegistrationPage">
+        <div class="form-description">
+            <h2> Customer Registration</h2>
+        </div>
+        <div style="margin-top: 5%">
+          <div class="form-group">
+            <label>Wallet Address</label>
+            <input type="text" class="form-control" [(ngModel)]="customer.address" name="address">
+            <small class="form-control-feedback"></small>
+          </div>        
+        <div class="row">
+            <div class="col col-xl-6">
+              <div class="form-group">
+                <label>First Name</label>
+                <input type="text" class="form-control" [(ngModel)]="customer.firstname" name="fname">
+                <small class="form-control-feedback"></small>
+              </div>
+            </div>
+            <div class="col col-xl-6">
+              <div class="form-group">
+                <label>Last Name</label>
+                <input type="text" class="form-control" [(ngModel)]="customer.lastname" name="lname">
+                <small class="form-control-feedback"></small>
+              </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-xl-6">
+              <div class="form-group">
+                <label>Region</label>
+                <input type="text" class="form-control" [(ngModel)]="customer.region" name="region">
+                <small class="form-control-feedback"></small>
+              </div>
+            </div>
+            <div class="col col-xl-6">
+              <div class="form-group">
+                <label>Country</label>
+                <input type="text" class="form-control" [(ngModel)]="customer.country" name="country">
+                <small class="form-control-feedback"></small>
+              </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-xl-6">
+              <div class="form-group">
+                <label>Email Id</label>
+                <input type="text" class="form-control" [(ngModel)]="customer.email" name="email">
+                <small class="form-control-feedback"></small>
+              </div>
+            </div>
+            <div class="col col-xl-6">
+              <div class="form-group">
+                <label>Password</label>
+                <input type="password" class="form-control" [(ngModel)]="customer.password" name="password">
+                <small class="form-control-feedback"></small>
+              </div>
+            </div>
+        </div>
+        </div>
+            <div style="margin-left: 25%;margin-top: 10%" class="form-group">
+                <button class="btn btn-primary btn-rounded" type="submit" (click)="registerCustomer(customer)">Register Customer</button>
+            </div>
+
+        </form>
+
+<!--     __________________________________________________ User Login  ____________________________________________
+ -->
+
+    <form [hidden]="!userLoginPage">
+        <div class="form-description">
+            <h2> User Login</h2>
+        </div>
+        <div style="padding-top: 15%">
+        <div class="form-group">
+            <div class="input-group">
+                <span class="input-group-addon">
+            <i class="sli-envelope"></i>
+        </span>
+                <input type="email" [(ngModel)]="login.user" [ngModelOptions]="{standalone: true}" name="emailEntered" class="form-control" placeholder="Enter UserId">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="input-group">
+                <span class="input-group-addon">
+            <i class="sli-lock"></i>
+        </span>
+                <input type="password" class="form-control" [(ngModel)]="login.password" [ngModelOptions]="{standalone: true}"  placeholder="Enter Password">
+            </div>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary btn-rounded" type="submit" (click)="submitUserLogin(login)">Submit</button>
+        </div>
+        </div>
+        </form>
+
+</div>
+</div>
+<!-- end pages/login -->
+            </div>

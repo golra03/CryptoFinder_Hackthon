@@ -1,0 +1,128 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "project": {
+    "name": "delta-angular"
+  },
+  "apps": [
+    {
+      "root": "src",
+      "outDir": "dist",
+      "assets": [
+        "assets",
+        "fonts",
+        "favicon.ico"
+      ],
+      "index": "index.html",
+      "main": "main.ts",
+      "polyfills": "polyfills.ts",
+      "test": "test.ts",
+      "tsconfig": "tsconfig.app.json",
+      "testTsconfig": "tsconfig.spec.json",
+      "prefix": "app",
+      "styles": [
+        "../bower_components/fakeLoader/fakeLoader.css",
+        "../bower_components/PACE/themes/blue/pace-theme-minimal.css",
+        "../bower_components/morris.js/morris.min.js",
+        "../bower_components/sweetalert2/dist/sweetalert2.css",        
+        "../bower_components/morris.js/morris.css",
+        "../bower_components/raphael/raphael.min.js",
+        "styles/main.scss",
+        "styles/elements/backdrops.scss",
+        "styles/elements/collapsed-left-sidebar-1.scss",
+        "styles/elements/collapsed-sidebar-heading-1.scss",
+        "styles/elements/dropdown-flags.scss",
+        "styles/elements/dropdown-user.scss",
+        "styles/elements/jumbotron-1.scss",
+        "styles/elements/jumbotron-2.scss",
+        "styles/elements/left-sidebar-1.scss",
+        "styles/elements/logo.scss",
+        "styles/elements/navbar-1.scss",
+        "styles/elements/sidebar-heading-1.scss",
+        "styles/elements/top-navigation-1.scss",
+        "styles/elements/top-navigation-2.scss",
+        "styles/elements/widget.scss",
+        "styles/forms/default-forms.scss",
+        "styles/icons/flags.scss",
+        "styles/icons/simple-line-icons.scss",
+        "styles/layouts/collapsed-sidebar-1.scss",
+        "styles/layouts/default-sidebar-1.scss",
+        "styles/layouts/empty-view-1.scss",
+        "styles/layouts/off-canvas-1.scss",
+        "styles/layouts/sidebar-over-1.scss",
+        "styles/layouts/top-navigation-1.scss",
+        "styles/layouts/top-navigation-2.scss",
+        "styles/notifications/alerts.scss",
+        "styles/notifications/modals.scss",
+        "styles/notifications/popovers.scss",
+        "styles/notifications/tooltips.scss",
+        "styles/forms/datepicker.scss",
+        "styles/pages/error-page.scss",
+        "styles/pages/login.scss",
+        "styles/forms/file-uploads.scss",
+        "styles/tables/default-tables.scss",
+        "styles/ui-elements/badges.scss",
+        "styles/ui-elements/breadcrumbs.scss",
+        "styles/ui-elements/buttons.scss",
+        "styles/ui-elements/dropdowns.scss",
+        "styles/charts/morris-js.scss",
+        "styles/ui-elements/images.scss",
+        "styles/ui-elements/lists.scss",
+        "styles/ui-elements/pagination.scss",
+        "styles/ui-elements/progress-bars.scss",
+        "styles/ui-elements/social-media-buttons.scss",
+        "styles/ui-elements/tabs.scss",
+        "styles/ui-elements/typography.scss"
+      ],
+      "stylePreprocessorOptions": {
+        "includePaths": [
+          "styles"
+        ]
+      },
+      "scripts": [
+        "../bower_components/jquery-1.9.1/index.js",
+        "../bower_components/tether/dist/js/tether.min.js",
+        "../bower_components/bootstrap/dist/js/bootstrap.min.js",
+        "../bower_components/lodash/dist/lodash.min.js",
+        "../bower_components/js-storage/js.storage.min.js",
+        "../bower_components/approvejs/dist/approve.min.js",
+        "../bower_components/sweetalert2/dist/sweetalert2.min.js",                        
+        "../bower_components/fakeLoader/fakeLoader.min.js",
+        "../bower_components/jquery-fullscreen/jquery.fullscreen-min.js",
+        "../bower_components/PACE/pace.min.js",
+        "../bower_components/morris.js/morris.min.js",
+        "../bower_components/raphael/raphael.min.js",
+        "../bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"
+      ],
+      "environmentSource": "environments/environment.ts",
+      "environments": {
+        "dev": "environments/environment.ts",
+        "prod": "environments/environment.prod.ts"
+      }
+    }
+  ],
+  "e2e": {
+    "protractor": {
+      "config": "./protractor.conf.js"
+    }
+  },
+  "lint": [
+    {
+      "project": "src/tsconfig.app.json"
+    },
+    {
+      "project": "src/tsconfig.spec.json"
+    },
+    {
+      "project": "e2e/tsconfig.e2e.json"
+    }
+  ],
+  "test": {
+    "karma": {
+      "config": "./karma.conf.js"
+    }
+  },
+  "defaults": {
+    "styleExt": "scss",
+    "component": []
+  }
+}

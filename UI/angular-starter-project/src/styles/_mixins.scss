@@ -1,0 +1,396 @@
+@import "functions";
+
+@mixin backdrop($z-index) {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: none;
+  z-index: $z-index;
+  opacity: 0;
+  background: #000 !important;
+  //transition: opacity 0.01s ease;
+	transition: opacity 0.25s ease-in-out;
+
+  &.fade {
+    display: block;
+  }
+
+  &.in {
+    opacity: 0.35;
+  }
+}
+
+@mixin form-title {
+  font-size: 20px;
+
+  //text-align: center;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+@mixin form-subtitle {
+  font-size: 16px;
+
+  //text-align: center;
+  font-weight: 500;
+
+  //text-transform: uppercase;
+  margin-bottom: 30px;
+}
+
+@mixin form-label {
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+
+@mixin text-xs {
+  font-size: 0.8rem !important;
+}
+
+@mixin text-sm {
+  font-size: 0.9rem !important;
+}
+
+@mixin text-lg {
+  font-size: 1.2rem !important;
+}
+
+@mixin box-shadow-1 {
+  box-shadow: 0px 4px 5px -2px rgba(0, 0, 0, 0.2), 0px 7px 10px 1px rgba(0, 0, 0, 0.14), 0px 2px 16px 1px rgba(0, 0, 0, 0.12);
+}
+
+@mixin box-shadow-2 {
+  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+}
+
+@mixin box-shadow-3 {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+@mixin box-shadow {
+  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+}
+
+@mixin font-size($size) {
+  //font-size: $size;
+  font-size: calculate-rem($size);
+}
+
+@mixin transition-mixin {
+  transition: all .5s;
+  transition-property: all;
+  transition-duration: 0.5s;
+  transition-timing-function: initial;
+  transition-delay: initial;
+}
+
+@mixin underline($width: 40px, $height: 3, $color: primary) {
+  position: relative;
+
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: -#{$height * 3}px;
+    left: 0px;
+    width: $width;
+    height: #{$height}px;
+    background-color: map-get($colors, $color);
+  }
+}
+
+@mixin sideline($width, $color) {
+  position: relative;
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: $width;
+    height: 100%;
+    background-color: $color;
+  }
+}
+
+@mixin arrow($z-index, $color) {
+	position: relative;
+	&:before {
+		position: absolute;
+		bottom: 0;
+		left: 21px;
+		width: 0;
+		height: 0;
+		transition: all 0.15s ease;
+		opacity: 0;
+		content: "";
+		z-index: $z-index;
+		border-left: 7px solid transparent;
+		border-right: 7px solid transparent;
+		border-bottom: 7px solid $color;
+	}
+
+	&:hover {
+		&:before {
+			opacity: 1;
+		}
+	}
+}
+
+@mixin sample-form-1($height, $width, $padding, $margin) {
+  position: relative;
+  padding: $padding;
+  height: $height;
+  width: $width;
+
+  h3 {
+    font-size: 1rem;
+    text-transform: uppercase;
+    margin-bottom: $margin;
+    font-weight: 700;
+  }
+
+  p {
+    margin-bottom: $margin * 2;
+  }
+
+  .input-group {
+    margin-bottom: $margin;
+  }
+
+  label {
+    font-weight: 600;
+    @include font-size(13px);
+    margin-bottom: $margin;
+  }
+
+  .btn {
+    margin-bottom: $margin;
+  }
+
+  .links {
+    a {
+      font-weight: 700;
+    }
+  }
+}
+
+@mixin sample-form-2($height, $width, $padding, $margin) {
+  position: relative;
+  padding: $padding;
+  height: $height;
+  width: $width;
+  overflow: hidden;
+
+  h3 {
+    font-size: 1rem;
+    text-transform: uppercase;
+    margin-bottom: $margin;
+    font-weight: 700;
+  }
+
+  p {
+    margin-bottom: $margin * 2;
+  }
+
+  .input-group {
+    margin-bottom: $margin;
+  }
+
+  label {
+    font-weight: 600;
+    @include font-size(13px);
+    margin-bottom: $margin;
+  }
+
+  .btn {
+    margin-bottom: $margin;
+  }
+
+  .links {
+    a {
+      font-weight: 700;
+    }
+  }
+
+  form {
+    margin-left: $width / 3;
+  }
+
+  .side-description {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: $width / 3;
+    padding: $padding;
+    background-color: transparent;
+    z-index: 3;
+
+    .logo {
+      margin-bottom: $margin-bottom;
+    }
+  }
+
+  .side-bg-1 {
+    background: url(/assets/images/sign-in-3.jpg) no-repeat center center fixed;
+    background-size: cover;
+    position: absolute;
+    content: "";
+    display: block;
+    top: 0;
+    left: 0;
+    right: $width / 3;
+    bottom: 0;
+    height: $height;
+    width: $width / 3;
+    z-index: 1;
+  }
+
+  .side-bg-2 {
+    position: absolute;
+    content: "";
+    display: block;
+    top: 0;
+    left: 0;
+    right: $width / 3;
+    bottom: 0;
+    height: $height;
+    width: $width / 3;
+    z-index: 2;
+    opacity: 0.75;
+  }
+}
+
+@mixin sample-form-3($height, $width, $padding, $margin) {
+  position: relative;
+  padding: $padding;
+  height: $height;
+  width: $width;
+  overflow: hidden;
+
+  h3 {
+    font-size: 1rem;
+    text-transform: uppercase;
+    margin-bottom: $margin;
+    font-weight: 700;
+  }
+
+  p {
+    margin-bottom: $margin * 2;
+  }
+
+  .input-group {
+    margin-bottom: $margin;
+  }
+
+  label {
+    font-weight: 600;
+    @include font-size(13px);
+    margin-bottom: $margin;
+  }
+
+  .btn {
+    margin-bottom: $margin;
+  }
+
+  .links {
+    a {
+      font-weight: 700;
+    }
+  }
+
+  form {
+    padding-right: $width / 3;
+  }
+
+  .side-description {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: $width / 3;
+    padding: $padding;
+    background-color: transparent;
+    z-index: 3;
+
+    .logo {
+      margin-bottom: $margin-bottom;
+    }
+  }
+
+  .side-bg-1 {
+    background: url(/assets/images/sign-in-3.jpg) no-repeat center center fixed;
+    background-size: cover;
+    position: absolute;
+    content: "";
+    display: block;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    height: $height;
+    width: $width / 3;
+    z-index: 1;
+  }
+
+  .side-bg-2 {
+    position: absolute;
+    content: "";
+    display: block;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    height: $height;
+    width: $width / 3;
+    z-index: 2;
+    opacity: 0.75;
+  }
+}
+
+@mixin sample-form-4($height, $width, $padding, $margin) {
+  position: relative;
+  height: $height;
+  width: $width;
+
+  form {
+    padding: 0 $padding $padding $padding;
+  }
+
+  h3 {
+    padding: ($padding / 2) $padding;
+    font-size: 1rem;
+    text-transform: uppercase;
+    margin-bottom: $margin;
+    font-weight: 700;
+  }
+
+  p {
+    margin-bottom: $margin * 2;
+  }
+
+  .input-group {
+    margin-bottom: $margin;
+  }
+
+  label {
+    font-weight: 600;
+    @include font-size(13px);
+    margin-bottom: $margin;
+  }
+
+  .btn {
+    margin-bottom: $margin;
+  }
+
+  .links {
+    a {
+      font-weight: 700;
+    }
+  }
+}

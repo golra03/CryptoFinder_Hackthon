@@ -1,0 +1,32 @@
+<!-- left-sidebar-1 -->
+<div class="left-sidebar left-sidebar-1">
+    <div class="wrapper">
+        <div class="content">
+                    <sidebar-heading></sidebar-heading>
+                    <div class="section" *ngFor="let menu of navigation">
+                            <div class="section-title">{{menu.title}}</div>
+                            <ul class="list-unstyled">
+                                <li *ngFor="let items of menu.items">
+                                        <a *ngIf="items.items.length === 0" routerLink="{{items.url}}" class="btn btn-default btn-flat btn-sidebar btn-sidebar-1">
+                                                <i class="{{items.icon}}"></i>
+                                                <span class="title">{{items.title}}</span>
+                                        </a>
+                                        <a *ngIf="items.items.length > 0" attr.data-target="#{{items.id}}" class="btn btn-default btn-flat btn-sidebar btn-sidebar-1 has-children" data-toggle="collapse">
+                                                <i class="{{items.icon}}"></i>
+                                                <span class="title">{{items.title}}</span>
+                                        </a>
+                                        <ul class="list-unstyled collapse" id="{{items.id}}">
+                                            <li *ngFor="let item of items.items">
+                                                    <a routerLink="{{item.url}}" class="btn btn-default btn-flat btn-sidebar btn-sidebar-2">
+                                                            <i class="{{item.icon}}"></i>
+                                                            <span class="title">{{item.title}}</span>
+                                                    </a>
+                                            </li>
+                                        </ul>
+                                </li>
+                            </ul>
+                    </div>
+        </div>
+    </div>
+</div>
+<!-- end left-sidebar-1 -->
